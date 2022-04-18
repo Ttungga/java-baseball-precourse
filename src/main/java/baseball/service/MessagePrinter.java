@@ -16,10 +16,16 @@ public class MessagePrinter {
             System.out.println("낫싱");
             return;
         }
-        System.out.printf("%s %s\r\n", getBallMessage(result), getStrikeMessage(result));
+        System.out.println(getResultMessage(result));
         if (result.getStrikeCount() == 3) {
             System.out.println(GAME_OVER);
         }
+    }
+
+    private String getResultMessage(final Result result) {
+        final String ballMessage = getBallMessage(result);
+        final String strikeMessage = "".equals(ballMessage) ? getStrikeMessage(result) : " " + getStrikeMessage(result);
+        return ballMessage + strikeMessage;
     }
 
     private String getBallMessage(final Result result) {

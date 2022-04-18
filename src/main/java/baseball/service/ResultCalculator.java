@@ -8,6 +8,12 @@ public class ResultCalculator {
 
     final Result result = new Result();
 
+    public Result initiateResult() {
+        result.setBallCount(0);
+        result.setStrikeCount(0);
+        return result;
+    }
+
     public Result calculateResult(final Answer answer, final InputNumber inputNumber) {
         result.setStrikeCount(getStrikeCount(answer, inputNumber));
         result.setBallCount(getBallCount(answer, inputNumber));
